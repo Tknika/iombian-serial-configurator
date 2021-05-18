@@ -1,0 +1,14 @@
+[Unit]
+Description=IoMBian Serial Configurator
+
+[Service]
+Type=simple
+User=iompi
+Restart=always
+RestartSec=5
+
+WorkingDirectory=/opt/iombian-serial-configurator
+ExecStart=/opt/iombian-serial-configurator/venv/bin/python /opt/iombian-serial-configurator/main.py
+
+[Install]
+WantedBy=multi-user.target

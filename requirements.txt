@@ -1,0 +1,2 @@
+pyserial
+pyzmq==21.0.1
