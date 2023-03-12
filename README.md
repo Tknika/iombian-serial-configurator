@@ -11,25 +11,29 @@ This service allows to configure the IoMBian device using a serial (USB OTG) con
 
 > 'modules-load=dwc2,g_serial' after 'rootwait' at '/boot/cmdline.txt'
 
+- Define project name in an environment variable:
+
+> ```PROJECT_NAME=iombian-serial-configurator```
+
 - Clone the repo into a temp folder:
 
-> ```git clone https://github.com/Tknika/iombian-serial-configurator.git /tmp/iombian-serial-configurator && cd /tmp/iombian-serial-configurator```
+> ```git clone https://github.com/Tknika/${PROJECT_NAME}.git /tmp/${PROJECT_NAME} && cd /tmp/${PROJECT_NAME}```
 
 - Create the installation folder and move the appropiate files (edit the user):
 
-> ```sudo mkdir /opt/iombian-serial-configurator```
+> ```sudo mkdir /opt/${PROJECT_NAME}```
 
-> ```sudo cp requirements.txt /opt/iombian-serial-configurator```
+> ```sudo cp requirements.txt /opt/${PROJECT_NAME}```
 
-> ```sudo cp -r src/* /opt/iombian-serial-configurator```
+> ```sudo cp -r src/* /opt/${PROJECT_NAME}```
 
-> ```sudo cp systemd/iombian-serial-configurator.service /etc/systemd/system/```
+> ```sudo cp systemd/${PROJECT_NAME}.service /etc/systemd/system/```
 
-> ```sudo chown -R iompi:iompi /opt/iombian-serial-configurator```
+> ```sudo chown -R iompi:iompi /opt/${PROJECT_NAME}```
 
 - Create the virtual environment and install the dependencies:
 
-> ```cd /opt/iombian-serial-configurator```
+> ```cd /opt/${PROJECT_NAME}```
 
 > ```python3 -m venv venv```
 
@@ -41,7 +45,7 @@ This service allows to configure the IoMBian device using a serial (USB OTG) con
 
 - Start the script
 
-> ```sudo systemctl enable iombian-serial-configurator.service && sudo systemctl start iombian-serial-configurator.service```
+> ```sudo systemctl enable ${PROJECT_NAME}.service && sudo systemctl start ${PROJECT_NAME}.service```
 
 
 ## Author
